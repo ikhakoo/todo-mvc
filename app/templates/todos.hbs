@@ -1,15 +1,18 @@
-{{input type="text" id="new-todo" placeholder="What needs to be done?" value=newTitle action="createTodo"}}
-
+{{input type="text" id="new-todo" placeholder="What needs to be done?"
+value=newTitle action="createTodo"}}
+ 
 <section id="main">
-	<ul id="todo-list">
+    <ul id="todo-list">
         {{#each todo in model}}
             {{todo-item acceptChanges="acceptChanges" deleteTodo="deleteTodo" item=todo}}
         {{/each}}
     </ul>
-
-	<input type="checkbox" id="toggle-all">
+ 
+    <input type="checkbox" id="toggle-all">
 </section>
-
+ 
+{{outlet}}
+ 
 <footer id="footer">
     <span id="todo-count">
         <strong>2</strong> todos left
@@ -24,7 +27,7 @@
         <li>
             <a href="completed">Completed</a>
         </li>
-    </ul>
+    </ul>√
  
     <button id="clear-completed">
         Clear completed (1)
