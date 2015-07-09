@@ -5,7 +5,14 @@ export default Ember.Route.extend({
         return this.store.find('todo');
     },
     actions: {
-        // Additional lines truncated for brevity...
+        createTodo: function (newTitle) {
+            // Create the new Todo model
+            var todo = this.store.createRecord('todo', {
+                title: newTitle,
+                isCompleted: false
+            });
+            todo.save();
+        },
         acceptChanges: function(todo) {
             if (Ember.isEmpty(todo.get('title'))) {
                 this.send('deleteTodo', todo);
@@ -16,5 +23,5 @@ export default Ember.Route.extend({
         deleteTodo: function(todo) {
             todo.deleteRecord();
         }
-    }
+    } 
 });
